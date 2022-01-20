@@ -11,7 +11,7 @@ export default authHandler;
 
 const options = {
     adapter: PrismaAdapter(prisma),
-
+    secret: process.env.AUTH0_SECRET,
     providers: [
         GitHubProvider({
             clientId: process.env.GITHUB_ID,
