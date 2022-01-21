@@ -24,17 +24,14 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
 };
 
 async function publishPost(id: number): Promise<void> {
-  await fetch(
-    `https://erik-astrom-githubpostboard.vercel.app/api/publish/${id}`,
-    {
-      method: "PUT",
-    }
-  );
+  await fetch(`../api/publish/${id}`, {
+    method: "PUT",
+  });
   await Router.push("/");
 }
 
 async function deletePost(id: number): Promise<void> {
-  await fetch(`https://erik-astrom-githubpostboard.vercel.app/api/post/${id}`, {
+  await fetch(`../api/post/${id}`, {
     method: "DELETE",
   });
   Router.push("/");
