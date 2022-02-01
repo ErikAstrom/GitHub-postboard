@@ -21,13 +21,13 @@ type Props = {
 };
 
 const Blog: React.FC<Props> = (props) => {
-  console.log(props.feed);
+  console.log(props);
 
   return (
     <Layout>
       <div className="page">
         <h1>Public Feed</h1>
-        <main>
+        <main className="container">
           {props.feed.map((post) => (
             <div key={post.id} className="post">
               <Post post={post} />
@@ -36,17 +36,22 @@ const Blog: React.FC<Props> = (props) => {
         </main>
       </div>
       <style jsx>{`
+        .container {
+          margin-bottom: 3rem;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+        }
         .post {
           background: white;
+          width: 49%;
+          margin: 5px;
+          min-height: 232px;
           transition: box-shadow 0.1s ease-in;
         }
 
         .post:hover {
           box-shadow: 1px 1px 3px #aaa;
-        }
-
-        .post + .post {
-          margin-top: 2rem;
         }
       `}</style>
     </Layout>
